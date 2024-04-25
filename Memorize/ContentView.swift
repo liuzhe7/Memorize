@@ -8,22 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["🐢","🎃","🕷️","👹","😭", "😊","😭", "😊","😭", "😊"]
-    @State var cardCount: Int = 2
+    @State var emojis = ["🐢","🐢","🎃","🎃","🕷️","🕷️","👹","👹","😊","😊","🤔","🤔"]
+    @State var cardCount: Int = 12
     var body: some View {
         VStack {
+            title
             ScrollView{
                 cards
             }
             Spacer()
-            cardCountAdjusters
+            HStack {
+                refreshButton
+                cardCountAdjusters
+            }
         }
 
         .padding()
     }
     
+    var title: some View {
+        Text("Memorize!").font(.largeTitle)
+    }
+    
+    var refreshButton: some View {
+        Button(action: refreshEmojis, label: {
+            Text("tap me!")
+        })
+    }
+    
+    func refreshEmojis () -> Void{
+        let emojisOne = ["🐢","🐢","🎃","🎃","🕷️","🕷️","👹","👹","😊","😊","🤔","🤔"]
+        let emojisTwo = ["👻","👻","💀","💀","👽","👽","👾","👾","🤖","🤖","😺","😺"]
+        let emojisThree = ["😈","😈","👺","👺","🤡","🤡","💩","💩","🐽","🐽","🐸","🐸"]
+
+        while true {
+            let radomIndex = Int.random(in: 0...2)
+            let allTheme = [emojisOne, emojisTwo, emojisThree]
+            if emojis != allTheme[radomIndex] {
+                emojis = allTheme[radomIndex]
+                return
+            }
+        }
+    }
+    
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
             ForEach(0..<cardCount,id: \.self) {
                 CardView(content: emojis[$0])
                     .aspectRatio(2/3,contentMode: .fit)
@@ -81,8 +110,8 @@ struct CardView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
