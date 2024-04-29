@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var emojis = ["🐢","🐢","🎃","🎃","🕷️","🕷️","👹","👹","😊","😊","🤔","🤔"]
-    @State var cardCount: Int = 12
+    static func generateEmojis () -> Array<String> {
+        var emojis = ["🏀","🏀","⚽️","⚽️","🥎","🥎","🏸","🏸","🏓","🏓","🏂","🏂"]
+        emojis.shuffle()
+        return emojis
+    }
+    
+    @State var emojis = generateEmojis()
     var body: some View {
         VStack {
             title
@@ -18,9 +23,15 @@ struct ContentView: View {
             }
             Spacer()
             HStack {
-                refreshButton
-                cardCountAdjusters
+                Spacer()
+                themeOne
+                Spacer()
+                themeTwo
+                Spacer()
+                themeThree
+                Spacer()
             }
+            .font(.title2)
         }
 
         .padding()
@@ -30,66 +41,68 @@ struct ContentView: View {
         Text("Memorize!").font(.largeTitle)
     }
     
-    var refreshButton: some View {
-        Button(action: refreshEmojis, label: {
-            Text("tap me!")
+    var themeOne: some View {
+        Button(action: choseThemeOne, label: {
+            VStack {
+                Image(systemName: "figure.disc.sports")
+                Text("sports")
+            }
         })
     }
     
-    func refreshEmojis () -> Void{
-        let emojisOne = ["🐢","🐢","🎃","🎃","🕷️","🕷️","👹","👹","😊","😊","🤔","🤔"]
-        let emojisTwo = ["👻","👻","💀","💀","👽","👽","👾","👾","🤖","🤖","😺","😺"]
-        let emojisThree = ["😈","😈","👺","👺","🤡","🤡","💩","💩","🐽","🐽","🐸","🐸"]
-
-        while true {
-            let radomIndex = Int.random(in: 0...2)
-            let allTheme = [emojisOne, emojisTwo, emojisThree]
-            if emojis != allTheme[radomIndex] {
-                emojis = allTheme[radomIndex]
-                return
+    var themeTwo: some View {
+        Button(action: choseThemeTwo, label: {
+            VStack {
+                Image(systemName: "questionmark.app.fill")
+                Text("animal")
             }
-        }
+        })
+    }
+    
+    var themeThree: some View {
+        Button(action: choseThemeThree, label: {
+            VStack {
+                Image(systemName: "face.smiling")
+                Text("face")
+            }
+        })
+    }
+    
+    func choseThemeOne () -> Void {
+        let emojisOne = ["🏀","🏀","⚽️","⚽️","🥎","🥎","🏸","🏸","🏓","🏓","🏂","🏂"]
+        emojis = emojisOne
+        emojis.shuffle()
+        return
+    }
+    
+    func choseThemeTwo () -> Void{
+        let emojisTwo = ["🐢","🐢","🕷️","🕷️","🙉","🙉","👾","👾","🐙","🐙","😺","😺","🐧","🐧"]
+        emojis = emojisTwo
+        emojis.shuffle()
+        return
+    }
+    
+    func choseThemeThree () -> Void{
+        let emojisThree = ["😈","😈","👺","👺","🤡","🤡","🤔","🤔","👹","👹","🥲","🥲","😎","😎","🥺","🥺"]
+        emojis = emojisThree
+        emojis.shuffle()
+        return
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
-            ForEach(0..<cardCount,id: \.self) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
+            ForEach(0..<emojis.count,id: \.self) {
                 CardView(content: emojis[$0])
                     .aspectRatio(2/3,contentMode: .fit)
             }
         }
-        .foregroundColor(.orange)
-    }
-        
-    var cardCountAdjusters: some View {
-        HStack {
-            cardAdder
-            Spacer()
-            cardRemover
-        }
-        .font(.largeTitle)
-    }
-    
-    func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
-        Button(action: {
-            cardCount += offset
-        }, label: {
-            Image(systemName: symbol)
-        }).disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
-    }
-    
-    var cardAdder: some View {
-        cardCountAdjuster(by: 1, symbol: "folder.badge.plus")
-    }
-    
-    var cardRemover: some View {
-        cardCountAdjuster(by: -1, symbol: "folder.badge.minus")
+        .foregroundColor(.red)
     }
 }
 
 struct CardView: View {
     let content: String
-    @State var isFaceUp = true
+    @State var isFaceUp = false
     var body: some View {
         ZStack {
             let base = RoundedRectangle(cornerRadius: 12)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE5779B72BDF82F10011D6D5 /* Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5779B62BDF82F10011D6D5 /* Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png */; };
 		EEB777532BD26E0B003F6110 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB777522BD26E0B003F6110 /* MemorizeApp.swift */; };
 		EEB777552BD26E0B003F6110 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB777542BD26E0B003F6110 /* ContentView.swift */; };
 		EEB777572BD26E0C003F6110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB777562BD26E0C003F6110 /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE5779B52BDF82750011D6D5 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		EE5779B62BDF82F10011D6D5 /* Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png"; path = "../../../../Desktop/Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png"; sourceTree = "<group>"; };
 		EEB7774F2BD26E0B003F6110 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB777522BD26E0B003F6110 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		EEB777542BD26E0B003F6110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 				EEB777542BD26E0B003F6110 /* ContentView.swift */,
 				EEB777562BD26E0C003F6110 /* Assets.xcassets */,
 				EEB777582BD26E0C003F6110 /* Preview Content */,
+				EE5779B52BDF82750011D6D5 /* readme.md */,
+				EE5779B62BDF82F10011D6D5 /* Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB7775A2BD26E0C003F6110 /* Preview Assets.xcassets in Resources */,
+				EE5779B72BDF82F10011D6D5 /* Simulator Screen Shot - iPhone 14 Pro - 2024-04-29 at 15.22.12.png in Resources */,
 				EEB777572BD26E0C003F6110 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
