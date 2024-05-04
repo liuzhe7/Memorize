@@ -16,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EE5779B52BDF82750011D6D5 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		EEB7774F2BD26E0B003F6110 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB777522BD26E0B003F6110 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		EEB777542BD26E0B003F6110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,7 +61,6 @@
 				EEB777542BD26E0B003F6110 /* ContentView.swift */,
 				EEB777562BD26E0C003F6110 /* Assets.xcassets */,
 				EEB777582BD26E0C003F6110 /* Preview Content */,
-				EE5779B52BDF82750011D6D5 /* readme.md */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
