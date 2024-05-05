@@ -5,22 +5,31 @@
 //  Created by solar on 2024/5/4.
 //
 
-import Foundation
+import SwiftUI
 
-struct EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     
     private static let emojis =  ["🐢","🕷️","🙉","👾","🐙","😺","🐧"]
     
     private static func createModel () -> MemoryGame<String> {
-        return MemoryGame(numberOfPairsOfCard: 4) {index in
-            emojis[index]
+        return MemoryGame(numberOfPairsOfCard: 16) {index in
+            if emojis.indices.contains(index) {
+               return emojis[index]
+            } else {
+                return "❓"
+            }
         }
     }
     
-    private var model: MemoryGame<String> = createModel()
+    @Published private var model: MemoryGame<String> = createModel()
     
-    var cards: Array<MemoryGame<String>.Card>{
+    var cards: Array<MemoryGame<String>.Card> {
         model.cards
+    }
+    
+    // MARK - intents
+    func shuffle() {
+        model.shuffle()
     }
     
     func chose(_ card: MemoryGame<String>.Card) {
