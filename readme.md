@@ -4,4 +4,4 @@
 
 https://github.com/liuzhe7/Memorize/releases/tag/v0.0.1
 
-![Screen](/ScreenShot.png)
+![Screen](/assignment-1.png)
